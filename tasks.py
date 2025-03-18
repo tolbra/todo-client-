@@ -67,39 +67,42 @@ def delete_task(description):
 
     list_tasks()
 
-def update_task(id, description):
+def update_task(task_id, description):
     tasks = load_tasks()
-    id_order(tasks)
-
-    id = int(id)
-    tasks[id]['description'] = description
-    tasks[id]['updatedAt'] = datetime.now().ctime()
-
-
+    found = False
+    for task in tasks:
+        if task["id"] == int(task_id):
+            task["description"] = description
+            task["updatedAt"] = datetime.now().ctime()
+            found = True
+            break
+    if not found:
+        print("Error: Task not found")
     save_tasks(tasks)
     list_tasks()
 
 def update_status(id):
-    print(f""" Choose to which status you want update the task by id {id}
+    print(f"""Choose status for task {id}:
     1 - To Do
     2 - In Progress
-    3 - Done
-    """)
+    3 - Done""")
     tasks = load_tasks()
-    id = int(id)
-    userInput = input()
-    if userInput == "1":
-        tasks[id]['status'] = 'To Do'
-    elif userInput == "2": 
-        tasks[id]['status'] = 'In Progress'
-    elif userInput == "3":
-        tasks[id]['status'] = 'Done'
-    else: 
-        print('Please type value between 1-3')
-
-
-    tasks[id]['updatedAt'] = datetime.now().ctime()
-
+    task_id = int(id)
+    
+    # Find task by ID
+    for task in tasks:
+        if task['id'] == task_id:
+            user_input = input().strip()
+            if user_input == "1":
+                task['status'] = 'todo'  # Lowercase
+            elif user_input == "2":
+                task['status'] = 'in-progress'
+            elif user_input == "3":
+                task['status'] = 'done'
+            else:
+                print("Invalid input")
+            task['updatedAt'] = datetime.now().ctime()
+            break
     save_tasks(tasks)
     list_tasks()
      
@@ -122,7 +125,7 @@ def filter_tasks():
     elif userFilter == '4':
         tasks = [task for task in tasks if task['status'].lower() == 'todo']
         
-        list_tasks(tasks)
+    list_tasks(tasks)
          
 def search():
     tasks = load_tasks()
@@ -138,7 +141,6 @@ def list_tasks(filtered=None):
         tasks = load_tasks()
     else:
         tasks = filtered
-    id_order(tasks)
 
     if not tasks:
         print('No tasks found')
