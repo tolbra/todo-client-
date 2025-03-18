@@ -9,16 +9,14 @@ from colorama import init
 init()
 from colorama import Fore, Back, Style
 
-TASKS_FILE = 'tests.json'
-
-STATUS = [
-    ('toDo', 'To Do'),
-    ('inProgres', 'In Progress'),
-    ('done', 'Done')
-] 
+TASKS_FILE = 'tasks.json'
 
 
-def load_tasks(jsonfile: str = TASKS_FILE):
+
+
+def load_tasks(jsonfile: str = None):
+    if jsonfile is None:
+        jsonfile = TASKS_FILE
     if os.path.exists(jsonfile):
         with open(jsonfile, 'r') as f:
             try:
@@ -26,9 +24,10 @@ def load_tasks(jsonfile: str = TASKS_FILE):
             except json.JSONDecodeError:
                 return []
     return []
-
-def save_tasks(tasks):
-    with open(TASKS_FILE, 'w') as f:
+def save_tasks(tasks, jsonfile: str = None):
+    if jsonfile is None:
+        jsonfile = TASKS_FILE
+    with open(jsonfile, 'w') as f:
         json.dump(tasks, f, indent=4)
 
 def add_task(description):
@@ -148,13 +147,11 @@ def list_tasks(filtered=None):
 
     headers = ["ID", "Description", "Status", "Created", "Updated"]
 
-    # Build the table rows from your task dictionaries
     table = []
     for task in tasks:
         row = [task['id'], task['description'], task['status'], task['createdAt'], task['updatedAt']]
         table.append(row)
 
-    # Print the table using tabulate
     print(tabulate(table, headers=headers, tablefmt="grid"))
 
 

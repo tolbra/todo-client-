@@ -15,65 +15,9 @@
     },
     {
         "id": 2,
-        "description": "Add colorama library",
-        "status": "Done",
-        "createdAt": "Tue Feb 25 17:52:20 2025",
-        "updatedAt": "Tue Feb 25 18:10:08 2025"
-    },
-    {
-        "id": 3,
-        "description": "Add unit tasks",
+        "description": "Let's test",
         "status": "todo",
-        "createdAt": "Tue Feb 25 17:53:46 2025",
-        "updatedAt": "Tue Feb 25 17:53:46 2025"
-    },
-    {
-        "id": 4,
-        "description": "Think of OOP approach",
-        "status": "todo",
-        "createdAt": "Tue Feb 25 17:54:14 2025",
-        "updatedAt": "Tue Feb 25 17:54:14 2025"
-    },
-    {
-        "id": 5,
-        "description": "Crete and installable package",
-        "status": "todo",
-        "createdAt": "Tue Feb 25 17:55:31 2025",
-        "updatedAt": "Tue Feb 25 17:55:31 2025"
-    },
-    {
-        "id": 6,
-        "description": "Write README file",
-        "status": "todo",
-        "createdAt": "Tue Feb 25 17:55:43 2025",
-        "updatedAt": "Tue Feb 25 17:55:43 2025"
-    },
-    {
-        "id": 7,
-        "description": "hello, world",
-        "status": "todo",
-        "createdAt": "Tue Feb 25 19:56:48 2025",
-        "updatedAt": "Tue Feb 25 19:56:48 2025"
-    },
-    {
-        "id": 8,
-        "description": "hello, world",
-        "status": "todo",
-        "createdAt": "Tue Feb 25 20:01:50 2025",
-        "updatedAt": "Tue Feb 25 20:01:50 2025"
-    },
-    {
-        "id": 9,
-        "description": "hello, world",
-        "status": "todo",
-        "createdAt": "Tue Feb 25 20:03:12 2025",
-        "updatedAt": "Tue Feb 25 20:03:12 2025"
-    },
-    {
-        "id": 10,
-        "description": "hello, world",
-        "status": "todo",
-        "createdAt": "Tue Feb 25 20:03:58 2025",
-        "updatedAt": "Tue Feb 25 20:03:58 2025"
+        "createdAt": "Tue Mar 18 23:36:09 2025",
+        "updatedAt": "Tue Mar 18 23:36:09 2025"
     }
 ]
